@@ -12,3 +12,11 @@ Nuget Packages
 * Microsoft.EntityFrameworkCore.Design 2.2.4
 * Microsoft.EntityFrameworkCore.Tools 2.2.4
 
+Microsoft SQL Server 2017 - SQL Server versions 2012 and higher are supported including the community versions.  Microsoft Azure SQL Database is also supported
+
+## Setup
+After cloning the project, you will need a connection to an appropriate version of SQL Server or Azure SQL Database instance.  Create and empty database with any name you like.
+
+Open the project in Visual Studio and locate the entity framework DbContext class cleverly named **DatabaseContext.cs** and provide the server name and database name for your environment in the connection string...see code snippets below.
+
+With SQL server integrated security enabled
