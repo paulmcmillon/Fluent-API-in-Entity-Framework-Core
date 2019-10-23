@@ -1,5 +1,5 @@
 # Using Fluent API with Entity Framework Core
-The repo contains one Visual Studio solution with one C# class library project.  The class library contains two folders, one with models and one with corresponding fluent API configurations for each model.  The goal of the project is to demonstrate how to leverage fluent API to sperate model configuration from model classes.  Not all database platforms, such as Oracle and MySQL, support all of annotations and navigation properties that might be encountered for a specific project.  Certain database object configurations do not have accompanying annotations as well, such as column default values, column constraints or cascade update and delete actions.  Microsoft recommends using fluent API going forward for code first entity framework implementations.
+The repo contains one Visual Studio solution with one C# class library project.  The class library contains two folders, one with models and one with corresponding fluent API configurations for each model.  The goal of the project is to demonstrate how to leverage fluent API to sperate model configuration from model classes.  Not all database platforms, such as Oracle and MySQL, support all the annotations and navigation properties that might be encountered for a specific project.  Certain database object configurations do not have accompanying annotations as well, such as column default values, column constraints or cascade update and delete actions.  Microsoft recommends using fluent API going forward for code first entity framework implementations.
 
 ## Tools and Frameworks
 Visual Studio 2017 Version 15.9.16
@@ -20,3 +20,12 @@ After cloning the project, you will need a connection to an appropriate version 
 Open the project in Visual Studio and locate the entity framework DbContext class cleverly named **DatabaseContext.cs** and provide the server name and database name for your environment in the connection string...see code snippets below.
 
 With SQL server integrated security enabled
+
+`        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)`
+        `{`
+            `if (!optionsBuilder.IsConfigured)`
+            `{`
+                `optionsBuilder.UseSqlServer("Data Source=[SERVERNAME];Initial Catalog=[DATABASENAME];Integrated Security=True;")`
+                `.ConfigureWarnings(warnings => warnings.Throw(RelationalEventId.QueryClientEvaluationWarning));`
+            `}`
+       
