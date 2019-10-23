@@ -29,3 +29,8 @@ With SQL server integrated security enabled
                 `.ConfigureWarnings(warnings => warnings.Throw(RelationalEventId.QueryClientEvaluationWarning));`
             `}`
        
+NOTE: If using Azure SQL you'll need to replace the connection string and your environment variables with...
+
+`Server=tcp:[ServerName].database.windows.net,1433;Initial Catalog=[DatabaseName];Persist Security Info=False;User ID=[UserId];Password=[password];MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+
+Now that you have your empty database and Dbcontext configured, open the Package Manager Console in visual studio (View -> Other Windows -> Package Manager Console) and type _add-migration_ [MigrationName].  You may use any name you like, just omit any spaces.  This will create three files in a new folder named Migrations.  If you receive any errors, double check your connection string and login credentials.  Next type _update-database_ in the Package Manager Console.  After the package manager completes execution of the migration scripts you can check your database for your table entites.
