@@ -19,7 +19,7 @@ After cloning the project, you will need a connection to an appropriate version 
 
 Open the project in Visual Studio and locate the entity framework DbContext class cleverly named **DatabaseContext.cs** and provide the server name and database name for your environment in the connection string...see code snippets below.
 
-With SQL server integrated security enabled
+**Using SQL server with integrated security enabled**
 
 `        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)`
         `{`
@@ -29,7 +29,7 @@ With SQL server integrated security enabled
                 `.ConfigureWarnings(warnings => warnings.Throw(RelationalEventId.QueryClientEvaluationWarning));`
             `}`
        
-NOTE: If using Azure SQL you'll need to replace the connection string and your environment variables with...
+**Using Azure SQL Database**
 
 `Server=tcp:[ServerName].database.windows.net,1433;Initial Catalog=[DatabaseName];Persist Security Info=False;User ID=[UserId];Password=[password];MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
