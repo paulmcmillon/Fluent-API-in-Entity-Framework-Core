@@ -4,7 +4,7 @@ The repo contains one Visual Studio solution with one C# class library project. 
 ## Tools and Frameworks
 Visual Studio 2017 Version 15.9.16
 
-Microsoft .NET Framework Version 4.8.03572
+Microsoft .NET Core Framework Version 2.2
 
 Nuget Packages
 * Microsoft.NETCore.App v 2.2.0
